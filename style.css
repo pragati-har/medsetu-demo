@@ -1,0 +1,337 @@
+/* GLOBAL */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: "Segoe UI", sans-serif;
+}
+
+body{
+background:#f4f7fb;
+color:#333;
+line-height:1.6;
+}
+
+/* NAVBAR */
+
+.landing-nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:20px 60px;
+
+background:rgba(255,255,255,0.7);
+backdrop-filter:blur(12px);
+
+position:sticky;
+top:0;
+z-index:100;
+}
+
+.landing-nav nav a{
+margin-left:25px;
+text-decoration:none;
+color:#333;
+font-weight:500;
+}
+
+.logo{
+font-weight:700;
+color:#2563eb;
+}
+
+.btn-primary{
+background:#2563eb;
+color:white;
+padding:10px 20px;
+border-radius:8px;
+text-decoration:none;
+}
+
+/* HERO */
+
+.hero{
+display:flex;
+align-items:center;
+justify-content:space-between;
+
+padding:80px 10%;
+}
+
+.hero-text{
+max-width:500px;
+}
+
+.hero-text h1{
+font-size:46px;
+margin-bottom:20px;
+}
+
+.hero-text p{
+margin-bottom:25px;
+color:#555;
+}
+
+.hero-btn{
+background:#2563eb;
+color:white;
+padding:12px 25px;
+border-radius:8px;
+text-decoration:none;
+font-weight:500;
+}
+
+.hero-image img{
+width:420px;
+border-radius:18px;
+box-shadow:0 20px 50px rgba(0,0,0,0.15);
+}
+
+/* STATS */
+
+.stats{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:25px;
+
+padding:60px 10%;
+}
+
+.stat-card{
+background:rgba(255,255,255,0.7);
+backdrop-filter:blur(10px);
+
+padding:30px;
+border-radius:16px;
+
+text-align:center;
+
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.counter{
+font-size:36px;
+color:#2563eb;
+margin-bottom:10px;
+}
+
+/* FEATURES */
+
+.features{
+padding:80px 10%;
+text-align:center;
+}
+
+.features h2{
+margin-bottom:40px;
+}
+
+.feature-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+}
+
+.feature-card{
+background:white;
+padding:30px;
+
+border-radius:12px;
+
+box-shadow:0 10px 20px rgba(0,0,0,0.08);
+
+transition:0.3s;
+}
+
+.feature-card:hover{
+transform:translateY(-6px);
+}
+
+/* CTA */
+
+.cta{
+text-align:center;
+padding:70px 20px;
+
+background:#2563eb;
+color:white;
+}
+
+.cta p{
+margin:15px 0 25px 0;
+}
+
+/* FOOTER */
+
+.footer{
+text-align:center;
+padding:20px;
+background:#111;
+color:white;
+}
+
+/* DASHBOARD */
+
+.topbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:15px 40px;
+background:#2563eb;
+color:white;
+}
+
+.dashboard{
+padding:40px 10%;
+}
+
+.card{
+background:white;
+padding:25px;
+margin-bottom:30px;
+
+border-radius:12px;
+
+box-shadow:0 10px 20px rgba(0,0,0,0.08);
+}
+
+/* FORMS */
+
+input,
+select{
+width:100%;
+padding:10px;
+
+margin-top:8px;
+margin-bottom:15px;
+
+border-radius:6px;
+border:1px solid #ddd;
+}
+
+button{
+background:#2563eb;
+color:white;
+
+border:none;
+padding:10px 18px;
+
+border-radius:6px;
+cursor:pointer;
+
+margin-top:5px;
+}
+
+button:hover{
+background:#1e4ed8;
+}
+
+/* MEDICINE ROWS */
+
+.med-row{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:10px;
+
+margin-bottom:10px;
+}
+
+/* TIMELINE */
+
+.timeline-item{
+padding:15px;
+
+border-left:4px solid #2563eb;
+
+background:#f7f9ff;
+
+margin-bottom:10px;
+border-radius:6px;
+}
+
+.medication-item {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.75rem;
+  margin-bottom: 0.75rem;
+  background: var(--blue-50);
+}
+
+/* SIGNATURE */
+
+.signature-block{
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+margin-top:40px;
+}
+
+.doctor-stamp{
+width:120px;
+opacity:0.9;
+
+transform:rotate(-10deg);
+
+filter:drop-shadow(0 6px 8px rgba(0,0,0,0.2));
+}
+
+/* QR */
+
+#qrContainer{
+margin-top:20px;
+}
+
+/* HIDDEN */
+
+.hidden{
+display:none;
+}
+
+/* PHARMACY STATUS */
+
+.status-dispensed{
+color:green;
+font-weight:600;
+}
+
+.status-pending{
+color:#f59e0b;
+font-weight:600;
+}
+
+.status-expired{
+color:red;
+font-weight:600;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+.hero{
+flex-direction:column;
+text-align:center;
+}
+
+.hero-image img{
+width:300px;
+margin-top:30px;
+}
+
+.stats{
+grid-template-columns:repeat(2,1fr);
+}
+
+.feature-grid{
+grid-template-columns:1fr;
+}
+
+.med-row{
+grid-template-columns:1fr;
+}
+
+}

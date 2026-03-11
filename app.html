@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MedSetu Dashboard</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+<header class="topbar">
+  <h2>MedSetu</h2>
+  <div>
+    <span id="sessionUser"></span>
+    <button id="logoutBtn" class="hidden">Logout</button>
+  </div>
+</header>
+
+<!-- LOGIN -->
+<div id="authSection" class="card">
+  <h2>Login</h2>
+  <select id="roleSelect">
+    <option value="doctor">Doctor</option>
+    <option value="patient">Patient</option>
+    <option value="pharmacist">Pharmacist</option>
+  </select>
+  <input id="email" placeholder="Email">
+  <input id="password" type="password" placeholder="Password">
+  <button id="loginBtn">Login</button>
+</div>
+
+<!-- DOCTOR DASHBOARD -->
+<div id="doctorDashboard" class="dashboard hidden">
+  <h2>Doctor Dashboard</h2>
+
+  <!-- Patient Access -->
+  <div class="card">
+    <h3>Access Patient</h3>
+    <input id="patientPhone" placeholder="Patient Phone">
+    <button id="generateOtpBtn">Generate OTP</button>
+    <input id="otpInput" placeholder="Enter OTP">
+    <button id="verifyOtpBtn">Verify</button>
+    <p id="lastDoctorAccess"></p>
+  </div>
+
+  <!-- Patient Medical Timeline -->
+  <div class="card">
+    <h3>Patient Medical Timeline</h3>
+    <div id="timeline"></div>
+  </div>
+
+  <!-- Patient Health Summary -->
+  <div class="card hidden" id="patientSummaryCard">
+    <h3>Patient Health Summary</h3>
+    <p id="summaryName"></p>
+    <p id="summaryAgeGender"></p>
+    <p id="summaryWeightHeight"></p>
+    <p id="summaryCityAddress"></p>
+    <p id="summaryAllergies"></p>
+    <p id="summaryDiseases"></p>
+    <p id="summaryLastAccess"></p>
+  </div>
+
+  <!-- Create Prescription -->
+  <div class="card">
+    <h3>Create Prescription</h3>
+    <input id="patientName" placeholder="Patient Name">
+    <input id="patientAge" placeholder="Age">
+    <input id="patientCity" placeholder="City">
+    <input id="patientAddress" placeholder="Patient Address">
+    <select id="patientGender"><option>Male</option><option>Female</option><option>Other</option></select>
+    <input id="patientWeight" placeholder="Weight (kg)">
+    <input id="patientHeight" placeholder="Height (cm)">
+    <input id="allergies" placeholder="Allergies">
+    <input id="existingDiseases" placeholder="Pre-existing Diseases">
+
+    <label>Disease</label>
+    <select id="disease">
+      <option>Viral Fever</option>
+      <option>Diabetes</option>
+      <option>Hypertension</option>
+      <option>Cold & Flu</option>
+      <option>Asthma</option>
+      <option>Migraine</option>
+    </select>
+
+    <label>Prescription Course (Days)</label>
+    <input id="courseDays" list="courseOptions">
+    <datalist id="courseOptions">
+      <option value="3"><option value="5"><option value="7"><option value="10"><option value="14"><option value="21"><option value="30">
+    </datalist>
+
+    <h3>Medicines</h3>
+    <div id="medRows"></div>
+    <button id="addMedBtn">Add Medicine</button>
+    <input id="doctorAddress" placeholder="Doctor Address">
+    <button id="createPrescriptionBtn">Create Prescription</button>
+    <div id="qrContainer"></div>
+    <button id="downloadPdfBtn">Download PDF</button>
+  </div>
+</div>
+
+<!-- PATIENT DASHBOARD -->
+<div id="patientDashboard" class="dashboard hidden">
+  <h2>Patient Dashboard</h2>
+
+  <!-- Last accessed info -->
+  <div class="card">
+    <h3>Last Accessed</h3>
+    <p id="lastDoctorAccess"></p>
+  </div>
+
+  <!-- Medical Timeline -->
+  <div class="card">
+    <h3>Medical Timeline</h3>
+    <div id="patientTimeline"></div>
+  </div>
+
+  <!-- Current Medications -->
+  <div class="card">
+    <h3>Current Medications</h3>
+    <div id="currentMedications"></div>
+  </div>
+
+  <!-- Upload Report -->
+  <div class="card">
+    <h3>Upload Medical Report</h3>
+    <input type="file" id="reportUpload">
+    <p id="reportStatus"></p>
+  </div>
+</div>
+
+<!-- PHARMACIST DASHBOARD -->
+<div id="pharmacistDashboard" class="dashboard hidden">
+  <h2>Pharmacist Dashboard</h2>
+
+  <div class="card">
+    <h3>Verify Prescription</h3>
+    <input id="lookupId" placeholder="Prescription ID">
+    <button id="lookupBtn">Verify</button>
+    <p id="lookupResult"></p>
+  </div>
+
+  <div class="card">
+    <h3>Prescription Details</h3>
+    <div id="prescriptionView"></div>
+    <button id="viewBtn">View</button>
+    <button id="downloadBtn">Download</button>
+    <button id="printBtn">Print</button>
+    <button id="dispenseBtn">Mark as Dispensed</button>
+  </div>
+</div>
+
+<!-- SIGNATURE BLOCK -->
+<div id="signatureTemplate" class="hidden">
+  <div class="signature-block">
+    <div>
+      <p><b>Doctor Signature</b></p>
+      <p id="doctorSignatureText"></p>
+    </div>
+    <div>
+      <img src="assets/doctor-stamp.png" class="doctor-stamp">
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
